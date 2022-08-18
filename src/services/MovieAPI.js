@@ -1,14 +1,6 @@
 import axios from 'axios'
 
 const API_KEY = '60e253cfe31e3fccc68ed6b0c23aba69'
-//const BASE_URL = 'https://api.themoviedb.org/3/'
-
-/* export default axios.create({
-	baseURL: "https://api.themoviedb.org/3",
-	params: {
-	  api_key: `${API_KEY}`
-	}
-}); */
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
 //const language = 'en-US'
@@ -25,6 +17,18 @@ const getPopularMovies = async () => {
 	return res.data
 }
 
+const getLatestMovies = async () => {
+	const res = await axios.get(`/movie/latest?api_key=${API_KEY}&include_adult=false&language=en-US`)
+	return res.data
+}
+
+const getTopRatedMovies = async () => {
+	const res = await axios.get(`/movie/top_rated?api_key=${API_KEY}&include_adult=false&language=en-US`)
+	return res.data
+}
+
 export default {
 	getPopularMovies,
+	getLatestMovies,
+	getTopRatedMovies,
 }
