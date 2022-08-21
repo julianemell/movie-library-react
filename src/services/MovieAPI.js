@@ -28,7 +28,7 @@ const getTopRatedMovies = async () => {
 }
 
 const getMovie = async (id) => {
-	const res = await axios.get(`/movie/${id}?api_key=${API_KEY}&include_adult=false&language=${language}`)
+	const res = await axios.get(`/movie/${id}?api_key=${API_KEY}&include_adult=false&language=${language}&append_to_response=credits`)
 	return res.data
 }
 export default {
