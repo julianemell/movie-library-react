@@ -9,8 +9,6 @@ import Button from 'react-bootstrap/Button'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
 import ListMovies from '../components/ListMovies'
-import ListLatestMovies from '../components/ListLatestMovies'
-import ListTopRatedMovies from '../components/ListTopRatedMovies'
 
 
 const MoviePage = () => {
@@ -35,14 +33,14 @@ const MoviePage = () => {
 				<h1 className="mt-4">Latest movies:</h1>
 				{isLoadingLatest && <LoadingSpinner />}
 				{isErrorLatest && <WarningAlert message={errorLatest.message} />}
-				{latestMovies && <ListLatestMovies data={latestMovies}/>}
+				{latestMovies && <ListMovies data={latestMovies}/>}
 				<Button className="warning" action as={Link} to={'/latest-movies'}>See all the latest movies</Button>
 			</div>
 
 			<h1 className="mt-4">Top rated movies:</h1>
 			{isLoadingTopRated && <LoadingSpinner />}
 			{isErrorTopRated && <WarningAlert message={errorTopRated.message} />}
-			{topRatedMovies && <ListTopRatedMovies data={topRatedMovies}/>}
+			{topRatedMovies && <ListMovies data={topRatedMovies}/>}
 			<Button className="warning" action as={Link} to={'/top-rated-movies'}>See all the top-rated movies</Button>
 
 		</Container>

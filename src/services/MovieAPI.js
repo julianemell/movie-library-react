@@ -1,9 +1,10 @@
 import axios from 'axios'
 
-const API_KEY = '60e253cfe31e3fccc68ed6b0c23aba69'
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
 const language = 'en-US'
+const region = 'US'
 
 //gör en get-req för det den fick in i endpoint
 const get = async (endpoint) => {
@@ -18,7 +19,7 @@ const getPopularMovies = async () => {
 }
 
 const getLatestMovies = async () => {
-	const res = await axios.get(`/movie/latest?api_key=${API_KEY}&include_adult=false&language=${language}`)
+	const res = await axios.get(`/movie/now_playing?api_key=${API_KEY}&include_adult=false&region=${region}`)
 	return res.data
 }
 
@@ -28,12 +29,27 @@ const getTopRatedMovies = async () => {
 }
 
 const getMovie = async (id) => {
-	const res = await axios.get(`/movie/${id}?api_key=${API_KEY}&include_adult=false&language=${language}&append_to_response=credits`)
+	const res = await axios.get(`/movie/${id}?api_key=${API_KEY}&include_adult=false&append_to_response=credits`)
 	return res.data
 }
+
+const getPerson = async (id) => {
+	const res = await axios.get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits,image`)
+	return res.data
+}
+
+const getGenres = async () => {
+	const res = await axios.get(`/genre/movie/list?api_key=${API_KEY}`)
+	return res.data
+}
+
+
+
 export default {
 	getPopularMovies,
 	getLatestMovies,
 	getTopRatedMovies,
 	getMovie,
+	getPerson,
+	getGenres,
 }

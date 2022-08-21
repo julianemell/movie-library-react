@@ -3,7 +3,7 @@ import useTopRatedMovies from '../hooks/useTopRatedMovies'
 
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
-import ListTopRatedMovies from '../components/ListTopRatedMovies'
+import ListMovies from '../components/ListMovies'
 
 const TopRatedMoviesPage = () => {
 	const { data: topRatedMovies, isError: isErrorTopRated, error: errorTopRated, isLoading: isLoadingTopRated } = useTopRatedMovies()
@@ -12,7 +12,7 @@ const TopRatedMoviesPage = () => {
 		<Container className="mb-4 mt-4">
 			{isLoadingTopRated && <LoadingSpinner />}
 			{isErrorTopRated && <WarningAlert message={errorTopRated.message} />}
-			{topRatedMovies && <ListTopRatedMovies data={topRatedMovies}/>}
+			{topRatedMovies && <ListMovies data={topRatedMovies}/>}
 		</Container>
 	)
 }

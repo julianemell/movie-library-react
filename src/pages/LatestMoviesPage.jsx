@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container'
-import ListLatestMovies from '../components/ListLatestMovies'
+import ListMovies from '../components/ListMovies'
 import useLatestMovies from '../hooks/useLatestMovies'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
@@ -12,7 +12,7 @@ const LatestMoviesPage = () => {
 		<Container>
 			{isLoadingLatest && <LoadingSpinner />}
 			{isErrorLatest && <WarningAlert message={errorLatest.message} />}
-			{latestMovies && <ListLatestMovies data={latestMovies}/>}
+			{latestMovies && <ListMovies data={latestMovies}/>}
 			
 		</Container>
 	)
