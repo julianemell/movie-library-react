@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 import Container from 'react-bootstrap/Container'
 import LoadingSpinner from '../components/LoadingSpinner'
-import PageButton from '../components/PageButton'
 import WarningAlert from '../components/alerts/WarningAlert'
 import useGenreMovies from '../hooks/useGenreMovies'
 import { Link } from 'react-router-dom'
@@ -15,16 +14,12 @@ import Row from 'react-bootstrap/Row'
 const GenreMovies = () => {
 	const [page, setPage] = useState(1)
 	const { data, isError, error, isLoading, isPreviousData } = useGenreMovies(page)
-	
-	const img_BASE_URL = "https://image.tmdb.org/t/p/w500/"
-
 	console.log('data', data)
-	console.log('isPreviousData', isPreviousData)
-
-
+	
 	const nextPage = () => setPage(prev => prev + 1)
 	const prevPage = () => setPage(prev => prev - 1)
-	//const pagesArray = Array(data.total_pages).fill().map((_, index) => index + 1)
+	
+	const img_BASE_URL = "https://image.tmdb.org/t/p/w500/"
 
 	return (
 		<Container>
@@ -51,18 +46,11 @@ const GenreMovies = () => {
 						))}
 					</Row>
 					
-					<nav>
-						<button onClick={prevPage} disabled={isPreviousData || page === 1}>previous</button>
-						{/* {pagesArray.map(pg => <PageButton key={pg} pg={pg} setPage={setPage} isPreviousData={isPreviousData} />)} */}
+					<div className="d-flex justify-content-between mt-4 mb-4">
+						<Button variant="warning" onClick={prevPage} disabled={isPreviousData || page === 1}>previous</Button>
 						{page}
-						<button onClick={nextPage} disabled={page === data.total_pages}>next</button>
-					</nav>
-					
-					{/* <div className="d-flex justify-content-between mt-4 mb-4">
-						<Button>Previous</Button>
-						<p>{data.page}</p>
-						<Button>Next</Button>
-					</div> */}
+						<Button variant="warning" onClick={nextPage} disabled={page === data.total_pages}>next</Button>
+					</div>
 				</>
 			)}
 		</Container>
