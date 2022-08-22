@@ -38,8 +38,8 @@ const getPerson = async (id) => {
 	return res.data
 }
 
-const getGenre = async (query, page) => {
-	const res = await axios.get(`/discover/movie?api_key=${API_KEY}&with_genres=${query}&page=${page}`)
+const getGenre = async (page = 1) => {
+	const res = await axios.get(`/discover/movie?api_key=${API_KEY}&with_genres=18&page=${page}`)
 	return res.data
 }
 
