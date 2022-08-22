@@ -38,6 +38,12 @@ const getPerson = async (id) => {
 	return res.data
 }
 
+const getGenre = async (query, page) => {
+	const res = await axios.get(`/discover/movie?api_key=${API_KEY}&with_genres=${query}&page=${page}`)
+	return res.data
+}
+
+
 const getGenres = async () => {
 	const res = await axios.get(`/genre/movie/list?api_key=${API_KEY}`)
 	return res.data
@@ -51,5 +57,6 @@ export default {
 	getTopRatedMovies,
 	getMovie,
 	getPerson,
+	getGenre,
 	getGenres,
 }

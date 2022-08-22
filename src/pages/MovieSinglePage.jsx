@@ -15,6 +15,8 @@ const MovieSinglePage = () => {
 	const { id } = useParams()
 	const { data: movie, error, isError, isLoading } = useMovie(id)
 	console.log('movie', movie)
+	const img_BASE_URL = "https://image.tmdb.org/t/p/w500/"
+
 
 /* 	const columns = useMemo(() => {
 		return [
@@ -38,18 +40,20 @@ const MovieSinglePage = () => {
 			{movie && (
 				<>
 					<h1>{movie.title}</h1>
+					<p>{movie.overview}</p>
+					<img src={`${img_BASE_URL}${movie.poster_path}`} className="img-fluid" />
 					
 					<h2>Cast:</h2>
 					{/* <BasicTable columns={columns} data={movie} /> */}
+
 					<ListGroup>
 						{movie.credits.cast.map((person, i) => (
-							<ListGroup.Item key={i}>
-								<div>{person.character} - {person.name}</div>
+							<ListGroup.Item key={i} className="d-flex justify-content-between">
+								<div><em>{person.character}</em> - {person.name}</div>
 								<Button variant="success" as={Link} to={`/person/${person.id}`}>Read more</Button>
 							</ListGroup.Item>
 						))}
 					</ListGroup>
-					<h2>Crew:</h2>
 				</>
 			)}
 		</Container>
