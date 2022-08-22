@@ -10,6 +10,7 @@ import PopularMoviesPage from './pages/PopularMoviesPage'
 import LatestMoviesPage from './pages/LatestMoviesPage'
 import TopRatedMoviesPage from './pages/TopRatedMoviesPage'
 import PersonSinglePage from './pages/PersonSinglePage'
+import GenreMoviesPage from './pages/GenreMoviesPage'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/movies" element={<MoviePage />} />
+				<Route path="/movies-genre" element={<GenreMoviesPage />} />
 				<Route path="/popular-movies" element={<PopularMoviesPage />} />
 				<Route path="/latest-movies" element={<LatestMoviesPage />} />
 				<Route path="/top-rated-movies" element={<TopRatedMoviesPage />} />
