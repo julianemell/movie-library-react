@@ -44,13 +44,6 @@ const getGenre = async (query, page) => {
 }
 
 
-const getGenres = async () => {
-	const res = await axios.get(`/genre/movie/list?api_key=${API_KEY}`)
-	return res.data
-}
-
-
-
 export default {
 	getPopularMovies,
 	getLatestMovies,
@@ -58,5 +51,4 @@ export default {
 	getMovie,
 	getPerson,
 	getGenre,
-	getGenres,
 }
