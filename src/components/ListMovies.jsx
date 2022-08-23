@@ -16,8 +16,8 @@ const ListMovies = ({data}) => {
 						<Card className="bg-warning">
 							<Card.Img variant="top" src={`${img_BASE_URL}${movie.poster_path}`} className="img-fluid" />
 							<Card.Body>
-								<Card.Title>{movie.original_title}</Card.Title>
-								<Card.Text>
+								<Card.Title id="movie-title">{movie.original_title}</Card.Title>
+								<Card.Text className="cut-text">
 									{movie.overview}
 								</Card.Text>
 								<Button variant="success" as={Link} to={`/movies/${movie.id}`}>Read more</Button>

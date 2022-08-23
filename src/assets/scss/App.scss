@@ -1,1 +1,14 @@
 @import 'bootstrap/scss/bootstrap';
+
+#movie-title h5 {
+	font-size: medium;
+}
+
+.cut-text {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+}
