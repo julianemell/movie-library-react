@@ -10,6 +10,7 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Genres from '../components/Genres'
 
 const GenreMovies = () => {
 	const [page, setPage] = useState(1)
@@ -23,6 +24,8 @@ const GenreMovies = () => {
 
 	return (
 		<Container>
+			<Genres />
+			
 			{isLoading && <LoadingSpinner />}
 
 			{isError && <WarningAlert message={error.message} />}
