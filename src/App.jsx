@@ -19,7 +19,7 @@ function App() {
 			<Navigation />
 
 			<Routes>
-				<Route path='/' element={<HomePage />} />
+				<Route path='/' element={<MoviePage />} />
 				<Route path='/movies' element={<MoviePage />} />
 				<Route path='/movies-genre' element={<GenreMoviesPage />} />
 				<Route path='/popular-movies' element={<PopularMoviesPage />} />

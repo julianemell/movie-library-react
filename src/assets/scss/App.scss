@@ -4,6 +4,10 @@
 	font-size: medium;
 }
 
+#movie-title-p p {
+	word-break: break-all;
+}
+
 .cut-text {
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
@@ -11,4 +15,32 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	
+}
+
+.scroll-container {
+	overflow: auto;
+	/* white-space: nowrap; */
+	padding: 4% 4% 4% 0;
+	background: transparent;
+	height: 100%;
+	border-radius:15px;
+}
+
+.movie-holder {
+	display: inline-block;
+	display: flex;
+}
+
+#movies-scroll {
+	margin-right: 4%;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#movie-img {
+	width: 200px;
+	height: auto;
 }

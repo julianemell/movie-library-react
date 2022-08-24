@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
 import ListMovies from '../components/ListMovies'
+import ScrollMovies from '../components/ScrollMovies'
 
 
 const MoviePage = () => {
@@ -22,27 +23,30 @@ const MoviePage = () => {
 	console.log('topRatedMovies', topRatedMovies)
 
 	return (
-		<Container>
-			<h1 className='mt-4'>Popular movies:</h1>
-			{isLoadingPopular && <LoadingSpinner />}
-			{isErrorPopular && <WarningAlert message={errorPopular.message} />}
-			{popularMovies && <ListMovies data={popularMovies}/>}
-			<Button className='warning w-100' action as={Link} to={'/popular-movies'}>See all the popular movies</Button>
-			
-			<div className='bg-light' >
+		<Container className='my-4'>
+			<div className='bg-light'>
+				<h1 className='mt-4'>Popular movies:</h1>
+				{isLoadingPopular && <LoadingSpinner />}
+				{isErrorPopular && <WarningAlert message={errorPopular.message} />}
+				{popularMovies && <ScrollMovies data={popularMovies}/>}
+				<Button className='btn btn-warning w-100' action as={Link} to={'/popular-movies'}>See all the popular movies</Button>
+			</div>
+
+			<div className='bg-light'>
 				<h1 className='mt-4'>Latest movies:</h1>
 				{isLoadingLatest && <LoadingSpinner />}
 				{isErrorLatest && <WarningAlert message={errorLatest.message} />}
-				{latestMovies && <ListMovies data={latestMovies}/>}
-				<Button className='warning w-100' action as={Link} to={'/latest-movies'}>See all the latest movies</Button>
+				{latestMovies && <ScrollMovies data={latestMovies}/>}
+				<Button className='btn btn-warning w-100' action as={Link} to={'/latest-movies'}>See all the latest movies</Button>
 			</div>
 
-			<h1 className='mt-4'>Top rated movies:</h1>
-			{isLoadingTopRated && <LoadingSpinner />}
-			{isErrorTopRated && <WarningAlert message={errorTopRated.message} />}
-			{topRatedMovies && <ListMovies data={topRatedMovies}/>}
-			<Button className='warning w-100' action as={Link} to={'/top-rated-movies'}>See all the top-rated movies</Button>
-
+			<div className='bg-light'>
+				<h1 className='mt-4'>Top rated movies:</h1>
+				{isLoadingTopRated && <LoadingSpinner />}
+				{isErrorTopRated && <WarningAlert message={errorTopRated.message} />}
+				{topRatedMovies && <ScrollMovies data={topRatedMovies}/>}
+				<Button className='btn btn-warning w-100' action as={Link} to={'/top-rated-movies'}>See all the top-rated movies</Button>
+			</div>
 		</Container>
 	)
 }
