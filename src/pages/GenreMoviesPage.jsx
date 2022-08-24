@@ -24,7 +24,6 @@ const GenreMovies = () => {
 	console.log('genres', genreData)
 	console.log('clicked genre', genreClick)
 	
-	
 	const { data, isError, error, isLoading, isPreviousData } = useGenreMovies(page, genreClick)
 	//console.log('data', data)
 	
@@ -42,7 +41,7 @@ const GenreMovies = () => {
 			{genreData && (
 				<div className='d-flex justify-content-center w-100 flex-wrap'>
 					{genreData.genres.map((genre, i) => (
-					<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => setGenreClick(genre.id)}>{genre.name}</Button>
+					<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => (setGenreClick(genre.id), setPage(1))}>{genre.name}</Button>
 					))}
 				</div>
 			)}
@@ -53,11 +52,9 @@ const GenreMovies = () => {
 
 			{data && (
 				<>
-					
-
 					<Row xs={1} s={2} md={3} l={5}>
 						{data.results.map((movie, i) => (
-							<Col key={i}>
+							<Col key={i} className="mt-3">
 								<Card className='bg-warning'>
 									<Card.Img variant='top' src={`${img_BASE_URL}${movie.poster_path}`} className='img-fluid' />
 									<Card.Body>
