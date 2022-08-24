@@ -10,17 +10,17 @@ const ListMovies = ({data}) => {
 
 	return (
 		<>
-			<Row xs={1} s={2} md={3} l={5}>
+			<Row xs={2} s={2} md={3} l={5}>
 				{data.results.map((movie, i) => (
-					<Col key={i} className="">
-						<Card className="bg-warning">
-							<Card.Img variant="top" src={`${img_BASE_URL}${movie.poster_path}`} className="img-fluid" />
+					<Col key={i}>
+						<Card className='bg-warning mt-2 mb-2'>
+							<Card.Img variant='top' src={`${img_BASE_URL}${movie.poster_path}`} className='img-fluid' />
 							<Card.Body>
-								<Card.Title id="movie-title">{movie.original_title}</Card.Title>
-								<Card.Text className="cut-text">
+								<Card.Title id='movie-title'>{movie.original_title}</Card.Title>
+								<Card.Text className='cut-text'>
 									{movie.overview}
 								</Card.Text>
-								<Button variant="success" as={Link} to={`/movies/${movie.id}`}>Read more</Button>
+								<Button variant='success' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
 							</Card.Body>
 						</Card>
 					</Col>

@@ -11,7 +11,7 @@ import LatestMoviesPage from './pages/LatestMoviesPage'
 import TopRatedMoviesPage from './pages/TopRatedMoviesPage'
 import PersonSinglePage from './pages/PersonSinglePage'
 import GenreMoviesPage from './pages/GenreMoviesPage'
-
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 function App() {
 	return (
@@ -30,6 +30,8 @@ function App() {
 
 				<Route path="*" element={<NotFound />} />
 			</Routes>
+			<ReactQueryDevtools />
+
 		</div>
 	)
 }
