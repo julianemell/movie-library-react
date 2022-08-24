@@ -1,11 +1,29 @@
 @import 'bootstrap/scss/bootstrap';
 
+body {
+	font-family: 'Teko', sans-serif;
+	background-color: rgb(243, 243, 243);
+}
+
+h1 h2 h3 h4 h5 p {
+	font-family: 'Teko', sans-serif;
+	font-weight: 500;
+}
+
 #movie-title h5 {
 	font-size: medium;
 }
 
 #movie-title-p p {
 	word-break: break-all;
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: 500;
+
+}
+
+.btn .btn-warning {
+	font-weight: 900;
+
 }
 
 .cut-text {
@@ -24,11 +42,17 @@
 	background: transparent;
 	height: 100%;
 	border-radius:15px;
+	/* border: solid 2px #c5c5c5; */
+	box-shadow: grey 0 2px 2px 0;
+	margin: 2% 0;
+	background-color: rgb(0, 0, 0);
+	color: white;
 }
 
 .movie-holder {
 	display: inline-block;
 	display: flex;
+	margin: 0 4%;
 }
 
 #movies-scroll {

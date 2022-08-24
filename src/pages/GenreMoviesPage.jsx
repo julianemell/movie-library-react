@@ -27,8 +27,8 @@ const GenreMovies = () => {
 	const { data, isError, error, isLoading, isPreviousData } = useGenreMovies(page, genreClick)
 	//console.log('data', data)
 	
-	const nextPage = () => setPage(prev => prev + 1)
-	const prevPage = () => setPage(prev => prev - 1)
+	const nextPage = () => (setPage(prev => prev + 1), window.scrollTo(0,0))
+	const prevPage = () => (setPage(prev => prev - 1), window.scrollTo(0,0))
 	
 	const img_BASE_URL = "https://image.tmdb.org/t/p/w500/"
 
@@ -52,7 +52,7 @@ const GenreMovies = () => {
 
 			{data && (
 				<>
-					<Row xs={1} s={2} md={3} l={5}>
+					<Row xs={1} s={2} md={4} l={5}>
 						{data.results.map((movie, i) => (
 							<Col key={i} className="mt-3">
 								<Card className='bg-warning'>

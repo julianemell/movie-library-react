@@ -24,24 +24,24 @@ const MoviePage = () => {
 
 	return (
 		<Container className='my-4'>
-			<div className='bg-light'>
-				<h1 className='mt-4'>Popular movies:</h1>
+			<div>
+				<h1 className='mt-4'>Popular movies</h1>
 				{isLoadingPopular && <LoadingSpinner />}
 				{isErrorPopular && <WarningAlert message={errorPopular.message} />}
 				{popularMovies && <ScrollMovies data={popularMovies}/>}
 				<Button className='btn btn-warning w-100' action as={Link} to={'/popular-movies'}>See all the popular movies</Button>
 			</div>
 
-			<div className='bg-light'>
-				<h1 className='mt-4'>Latest movies:</h1>
+			<div>
+				<h1 className='mt-4'>Latest movies</h1>
 				{isLoadingLatest && <LoadingSpinner />}
 				{isErrorLatest && <WarningAlert message={errorLatest.message} />}
 				{latestMovies && <ScrollMovies data={latestMovies}/>}
 				<Button className='btn btn-warning w-100' action as={Link} to={'/latest-movies'}>See all the latest movies</Button>
 			</div>
 
-			<div className='bg-light'>
-				<h1 className='mt-4'>Top rated movies:</h1>
+			<div>
+				<h1 className='mt-4'>Top rated movies</h1>
 				{isLoadingTopRated && <LoadingSpinner />}
 				{isErrorTopRated && <WarningAlert message={errorTopRated.message} />}
 				{topRatedMovies && <ScrollMovies data={topRatedMovies}/>}
