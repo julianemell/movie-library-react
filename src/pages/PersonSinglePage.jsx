@@ -12,7 +12,7 @@ const PersonSinglePage = () => {
 	const { id } = useParams()
 	const { data: person, error, isError, isLoading } = usePerson(id)
 	console.log('person', person)
-	const img_BASE_URL = "https://image.tmdb.org/t/p/w500/"
+	const img_BASE_URL = 'https://image.tmdb.org/t/p/w500/'
 
 
 	return (
@@ -25,7 +25,7 @@ const PersonSinglePage = () => {
 				<>
 					<div>
 						<h1>{person.name}</h1>
-						<img src={`${img_BASE_URL}${person.profile_path}`} className="img-fluid" />
+						<img src={`${img_BASE_URL}${person.profile_path}`} className='img-fluid' />
 						<p>{person.biography}</p>
 					</div>
 				
@@ -34,9 +34,9 @@ const PersonSinglePage = () => {
 						<h1>Movies {person.name} is in:</h1>
 						<ListGroup>
 							{person.movie_credits.cast.map((movie, i) => (
-								<ListGroup.Item key={i} className="d-flex justify-content-between">
+								<ListGroup.Item key={i} className='d-flex justify-content-between'>
 									<div>{movie.title}</div>
-									<Button variant="success" as={Link} to={`/movies/${movie.id}`}>Read more</Button>
+									<Button variant='success' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
 								</ListGroup.Item>
 							))}
 						</ListGroup>

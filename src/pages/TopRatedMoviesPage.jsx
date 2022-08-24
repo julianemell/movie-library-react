@@ -9,7 +9,7 @@ const TopRatedMoviesPage = () => {
 	const { data: topRatedMovies, isError: isErrorTopRated, error: errorTopRated, isLoading: isLoadingTopRated } = useTopRatedMovies()
 	
 	return (
-		<Container className="mb-4 mt-4">
+		<Container className='mb-4 mt-4'>
 			{isLoadingTopRated && <LoadingSpinner />}
 			{isErrorTopRated && <WarningAlert message={errorTopRated.message} />}
 			{topRatedMovies && <ListMovies data={topRatedMovies}/>}

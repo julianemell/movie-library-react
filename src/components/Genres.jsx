@@ -20,7 +20,7 @@ const Genres = () => {
 			{data && (
 				<>
 					{data.genres.map((genre, i) => (
-					<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => setGenreClick(genre.name)}>{genre.name}</Button>
+					<Button className='m-1 py-1 px-2 btn-md' variant='warning' key={i} onClick={() => setGenreClick(genre.name)}>{genre.name}</Button>
 					))}
 				</>
 			)}

@@ -39,9 +39,9 @@ const GenreMovies = () => {
 			{genreIsError && <WarningAlert message={genreError.message} />}
 			
 			{genreData && (
-				<div className='d-flex justify-content-center w-100 flex-wrap'>
+				<div className='d-flex justify-content-center w-100 flex-wrap my-3'>
 					{genreData.genres.map((genre, i) => (
-					<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => (setGenreClick(genre.id), setPage(1))}>{genre.name}</Button>
+						<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => (setGenreClick(genre.id), setPage(1))}>{genre.name}</Button>
 					))}
 				</div>
 			)}

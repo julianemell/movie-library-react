@@ -15,20 +15,20 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 
 function App() {
 	return (
-		<div id="App">
+		<div id='App'>
 			<Navigation />
 
 			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/movies" element={<MoviePage />} />
-				<Route path="/movies-genre" element={<GenreMoviesPage />} />
-				<Route path="/popular-movies" element={<PopularMoviesPage />} />
-				<Route path="/latest-movies" element={<LatestMoviesPage />} />
-				<Route path="/top-rated-movies" element={<TopRatedMoviesPage />} />
-				<Route path="/movies/:id" element={<MovieSinglePage />} />
-				<Route path="/person/:id" element={<PersonSinglePage />} />
+				<Route path='/' element={<HomePage />} />
+				<Route path='/movies' element={<MoviePage />} />
+				<Route path='/movies-genre' element={<GenreMoviesPage />} />
+				<Route path='/popular-movies' element={<PopularMoviesPage />} />
+				<Route path='/latest-movies' element={<LatestMoviesPage />} />
+				<Route path='/top-rated-movies' element={<TopRatedMoviesPage />} />
+				<Route path='/movies/:id' element={<MovieSinglePage />} />
+				<Route path='/person/:id' element={<PersonSinglePage />} />
 
-				<Route path="*" element={<NotFound />} />
+				<Route path='*' element={<NotFound />} />
 			</Routes>
 			<ReactQueryDevtools />
 

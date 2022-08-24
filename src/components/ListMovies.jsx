@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 const ListMovies = ({data}) => {
-	const img_BASE_URL = "https://image.tmdb.org/t/p/w500/"
+	const img_BASE_URL = 'https://image.tmdb.org/t/p/w500/'
 
 	return (
 		<>

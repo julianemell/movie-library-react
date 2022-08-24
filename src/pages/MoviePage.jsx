@@ -23,25 +23,25 @@ const MoviePage = () => {
 
 	return (
 		<Container>
-			<h1 className="mt-4">Popular movies:</h1>
+			<h1 className='mt-4'>Popular movies:</h1>
 			{isLoadingPopular && <LoadingSpinner />}
 			{isErrorPopular && <WarningAlert message={errorPopular.message} />}
 			{popularMovies && <ListMovies data={popularMovies}/>}
-			<Button className="warning w-100" action as={Link} to={'/popular-movies'}>See all the popular movies</Button>
+			<Button className='warning w-100' action as={Link} to={'/popular-movies'}>See all the popular movies</Button>
 			
-			<div className="bg-light" >
-				<h1 className="mt-4">Latest movies:</h1>
+			<div className='bg-light' >
+				<h1 className='mt-4'>Latest movies:</h1>
 				{isLoadingLatest && <LoadingSpinner />}
 				{isErrorLatest && <WarningAlert message={errorLatest.message} />}
 				{latestMovies && <ListMovies data={latestMovies}/>}
-				<Button className="warning w-100" action as={Link} to={'/latest-movies'}>See all the latest movies</Button>
+				<Button className='warning w-100' action as={Link} to={'/latest-movies'}>See all the latest movies</Button>
 			</div>
 
-			<h1 className="mt-4">Top rated movies:</h1>
+			<h1 className='mt-4'>Top rated movies:</h1>
 			{isLoadingTopRated && <LoadingSpinner />}
 			{isErrorTopRated && <WarningAlert message={errorTopRated.message} />}
 			{topRatedMovies && <ListMovies data={topRatedMovies}/>}
-			<Button className="warning w-100" action as={Link} to={'/top-rated-movies'}>See all the top-rated movies</Button>
+			<Button className='warning w-100' action as={Link} to={'/top-rated-movies'}>See all the top-rated movies</Button>
 
 		</Container>
 	)
