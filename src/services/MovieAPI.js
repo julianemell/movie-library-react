@@ -8,46 +8,38 @@ const region = 'US'
 
 //gör en get-req för det den fick in i endpoint
 const get = async (endpoint) => {
-	const response = await axios.get(endpoint)
-	return response.data
-}
-
-
-const getPopularMovies = async () => {
-	const res = await axios.get(`/movie/popular?api_key=${API_KEY}&include_adult=false&language=${language}`)
+	const res = await axios.get(endpoint)
 	return res.data
 }
 
-const getLatestMovies = async () => {
-	const res = await axios.get(`/movie/now_playing?api_key=${API_KEY}&include_adult=false&region=${region}`)
-	return res.data
+
+const getPopularMovies = () => {
+	return get(`/movie/popular?api_key=${API_KEY}&include_adult=false&language=${language}`)
 }
 
-const getTopRatedMovies = async () => {
-	const res = await axios.get(`/movie/top_rated?api_key=${API_KEY}&include_adult=false&language=${language}`)
-	return res.data
+const getLatestMovies = () => {
+	return get(`/movie/now_playing?api_key=${API_KEY}&include_adult=false&region=${region}`)
 }
 
-const getMovie = async (id) => {
-	const res = await axios.get(`/movie/${id}?api_key=${API_KEY}&include_adult=false&append_to_response=credits`)
-	return res.data
+const getTopRatedMovies = () => {
+	return get(`/movie/top_rated?api_key=${API_KEY}&include_adult=false&language=${language}`)
 }
 
-const getPerson = async (id) => {
-	const res = await axios.get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits,image`)
-	return res.data
+const getMovie = (id) => {
+	return get(`/movie/${id}?api_key=${API_KEY}&include_adult=false&append_to_response=credits`)
 }
 
-const getGenre = async ({ queryKey }) => {
+const getPerson = (id) => {
+	return get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits,image`)
+}
+
+const getGenre = ({ queryKey }) => {
 	const [_key, page, type] = queryKey
-	const res = await axios.get(`/discover/movie?api_key=${API_KEY}&with_genres=${type}&page=${page}`)
-	console.log('res', res)
-	return res.data
+	return get(`/discover/movie?api_key=${API_KEY}&with_genres=${type}&page=${page}`)
 }
 
-const getGenres = async () => {
-	const res = await axios.get(`/genre/movie/list?api_key=${API_KEY}&language=${language}`)
-	return res.data
+const getGenres = () => {
+	return get(`/genre/movie/list?api_key=${API_KEY}&language=${language}`)
 }
 
 

@@ -7,7 +7,7 @@ const Navigation = () => {
 	return (
 		<Navbar bg='warning' variant='dark' expand='md'>
 			<Container>
-				<Navbar.Brand as={Link} to='/'>Movies</Navbar.Brand>
+				<Navbar.Brand as={Link} to='/'>The Movie Database</Navbar.Brand>
 
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse id='basic-navbar-nav'>
