@@ -18,6 +18,7 @@ import Genres from '../components/Genres'
 const GenreMovies = () => {
 	const [page, setPage] = useState(1)
 	const [genreClick, setGenreClick] = useState()
+	const [genreName, setGenreName] = useState('Please choose a genre above to filter')
 	//const [searchParams, setSearchParams] = useSearchParams()
 
 	const { data: genreData, error: genreError, isError: genreIsError, isLoading: genreIsLoading } = useQuery('genres', MovieAPI.getGenres)
@@ -39,10 +40,13 @@ const GenreMovies = () => {
 			{genreIsError && <WarningAlert message={genreError.message} />}
 			
 			{genreData && (
-				<div className='d-flex justify-content-center w-100 flex-wrap my-3'>
-					{genreData?.genres.map((genre, i) => (
-						<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => (setGenreClick(genre.id), setPage(1))}>{genre.name}</Button>
-					))}
+				<div className='d-flex justify-content-center flex-column align-items-center'>
+					<div className='d-flex justify-content-center w-100 flex-wrap my-3'>
+						{genreData?.genres.map((genre, i) => (
+							<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => (setGenreClick(genre.id), setPage(1), setGenreName(genre.name))}>{genre.name}</Button>
+						))}
+					</div>
+					<p>{genreName}</p>
 				</div>
 			)}
 

@@ -23,15 +23,22 @@ const PersonSinglePage = () => {
 
 			{person && (
 				<>
-					<div>
-						<h1>{person.name}</h1>
-						<img src={`${img_BASE_URL}${person.profile_path}`} className='img-fluid' />
-						<p>{person.biography}</p>
+					<div className='info'>
+						<div className='info__container'>
+							<h1>{person.name}</h1>
+							<p>{person.biography}</p>
+							<ul>
+								<li>Birthday: {person.birthday}</li>
+								<li>Place of birth: {person.place_of_birth}</li>
+								<li>Department: {person.known_for_department}</li>
+							</ul>
+						</div>
+						<img src={`${img_BASE_URL}${person.profile_path}`} className='info__img img-fluid' />
 					</div>
 				
 
 					<div>
-						<h1>Movies {person.name} is in:</h1>
+						<h1>Movies {person.name} is in</h1>
 						<ListGroup>
 							{person.movie_credits.cast.map((movie, i) => (
 								<ListGroup.Item key={i} className='d-flex justify-content-between'>

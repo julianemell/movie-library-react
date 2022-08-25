@@ -39,11 +39,23 @@ const MovieSinglePage = () => {
 
 			{movie && (
 				<>
-					<h1>{movie.title}</h1>
-					<p>{movie.overview}</p>
-					<img src={`${img_BASE_URL}${movie.poster_path}`} className='img-fluid' />
+					<div className='info'>
+						<div className='info__container'>
+							<h1>{movie.title}</h1>
+							<p><em>{movie.tagline}</em></p>
+							<p>{movie.overview}</p>
+							<ul>
+								<li>{movie.vote_average}</li>
+								<li>Budget: ${movie.budget}</li>
+								<li>Genres: {movie.genres.map(genre => (<em> {genre.name},</em>))}</li>
+								<li>Language: {movie.original_language}</li>
+								<li>Release date: {movie.release_date}</li>
+							</ul>
+						</div>
+						<img src={`${img_BASE_URL}${movie.backdrop_path}`} className='img-fluid' />
+					</div>
 					
-					<h2>Cast:</h2>
+					<h2>Cast</h2>
 					{/* <BasicTable columns={columns} data={movie} /> */}
 
 					<ListGroup>
