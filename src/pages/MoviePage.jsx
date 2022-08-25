@@ -14,16 +14,16 @@ import ScrollMovies from '../components/ScrollMovies'
 
 const MoviePage = () => {
 	const { data: popularMovies, isError: isErrorPopular, error: errorPopular, isLoading: isLoadingPopular } = usePopularMovies()
-	console.log('popularMovies', popularMovies)
+	//console.log('popularMovies', popularMovies)
 
 	const { data: latestMovies, isError: isErrorLatest, error: errorLatest, isLoading: isLoadingLatest } = useLatestMovies()
-	console.log('latestMovies', latestMovies)
+	//console.log('latestMovies', latestMovies)
 
 	const { data: topRatedMovies, isError: isErrorTopRated, error: errorTopRated, isLoading: isLoadingTopRated } = useTopRatedMovies()
-	console.log('topRatedMovies', topRatedMovies)
+	//console.log('topRatedMovies', topRatedMovies)
 
 	return (
-		<Container className='my-4'>
+		<Container className='my-4 p-0'>
 			<div>
 				<h1 className='mt-4'>Popular movies</h1>
 				{isLoadingPopular && <LoadingSpinner />}

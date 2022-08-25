@@ -8,12 +8,12 @@ const ScrollMovies = ({data}) => {
 
 	return (
 		<>
-			<div className="scroll-container">
-				<div className="movie-holder">
+			<div className="movie-scroll">
+				<div className="movie-scroll__holder">
 					{data.results.map((movie, i) => (
-						<div key={i} id="movies-scroll">
-							<img src={`${img_BASE_URL}${movie.poster_path}`} id='movie-img'/>
-							<p id='movie-title-p'>{movie.original_title}</p>
+						<div key={i} className="movie-scroll__movie">
+							<img src={`${img_BASE_URL}${movie.poster_path}`} className='movie-scroll__img'/>
+							<p className='movie-scroll__title'>{movie.original_title}</p>
 							<Button className='w-100' variant='btn btn-outline-warning' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
 						</div>
 					))}
