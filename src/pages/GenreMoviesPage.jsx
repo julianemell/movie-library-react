@@ -15,6 +15,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Genres from '../components/Genres'
 import Pagination from '../components/Pagination'
+import ListMovies from '../components/ListMovies'
 
 const GenreMovies = () => {
 	const [page, setPage] = useState(1)
@@ -58,22 +59,7 @@ const GenreMovies = () => {
 
 			{data && (
 				<>
-					<Row xs={2} s={3} md={4} l={5}>
-						{data?.results.map((movie, i) => (
-							<Col key={i} className="mt-3">
-								<Card className='bg-warning'>
-									<Card.Img variant='top' src={`${img_BASE_URL}${movie.poster_path}`} className='img-fluid' />
-									<Card.Body>
-										<Card.Title>{movie.original_title}</Card.Title>
-										<Card.Text>
-											{/* {movie.overview} */}
-										</Card.Text>
-										<Button variant='success' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
-									</Card.Body>
-								</Card>
-							</Col>
-						))}
-					</Row>
+					<ListMovies data={data}/>
 
 					<Pagination 
 						page={page}
