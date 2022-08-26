@@ -1,9 +1,4 @@
 import Button from 'react-bootstrap/Button'
-import { useState } from 'react'
-import { useQuery } from 'react-query'
-import MovieAPI from '../services/MovieAPI'
-import LoadingSpinner from '../components/LoadingSpinner'
-import WarningAlert from '../components/alerts/WarningAlert'
 
 const Genres = ({ data, setGenreClick, setPage, setGenreName, genreName }) => {
 
