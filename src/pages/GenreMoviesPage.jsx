@@ -14,6 +14,7 @@ import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Genres from '../components/Genres'
+import Pagination from '../components/Pagination'
 
 const GenreMovies = () => {
 	const [page, setPage] = useState(1)
@@ -73,12 +74,15 @@ const GenreMovies = () => {
 							</Col>
 						))}
 					</Row>
+
+					<Pagination 
+						page={page}
+						totPages={data.total_pages}
+						previousData={isPreviousData}
+						previousPage={prevPage}
+						nextPage={nextPage}
+					/>
 					
-					<div className='d-flex justify-content-between mt-4 mb-4'>
-						<Button variant='warning' onClick={prevPage} disabled={isPreviousData || page === 1}>previous</Button>
-						<p>{page}/{data.total_pages}</p>
-						<Button variant='warning' onClick={nextPage} disabled={isPreviousData || page === data.total_pages}>next</Button>
-					</div>
 				</>
 			)}
 		</Container>
