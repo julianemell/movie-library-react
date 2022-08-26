@@ -43,14 +43,14 @@ const GenreMovies = () => {
 			{genreIsError && <WarningAlert message={genreError.message} />}
 			
 			{genreData && (
-				<div className='d-flex justify-content-center flex-column align-items-center'>
-					<div className='d-flex justify-content-center w-100 flex-wrap my-3'>
-						{genreData?.genres.map((genre, i) => (
-							<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => (setGenreClick(genre.id), setPage(1), setGenreName(genre.name))}>{genre.name}</Button>
-						))}
-					</div>
-					<p>{genreName}</p>
-				</div>
+				<Genres 
+					data={genreData} 
+					setGenreClick={setGenreClick} 
+					setPage={setPage} 
+					setGenreName={setGenreName} 
+					genreName={genreName}
+				/>
+				
 			)}
 
 			{isLoading && <LoadingSpinner />}
@@ -68,7 +68,6 @@ const GenreMovies = () => {
 						previousPage={prevPage}
 						nextPage={nextPage}
 					/>
-					
 				</>
 			)}
 		</Container>
