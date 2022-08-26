@@ -9,7 +9,8 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
 import BasicTable from '../components/BasicTable'
 import Button from 'react-bootstrap/Button'
-
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 const MovieSinglePage = () => {
 	const { id } = useParams()
@@ -41,31 +42,35 @@ const MovieSinglePage = () => {
 				<>
 					<div className='info'>
 						<div className='info__container'>
-							<h1>{movie.title}</h1>
-							<p><em>{movie.tagline}</em></p>
+							<h1 className='mb-0'>{movie.title}</h1>
+							<p className='text-warning'><em>{movie.tagline}</em></p>
 							<p>{movie.overview}</p>
 							<ul>
 								<li>{movie.vote_average}</li>
+								<li>{movie.runtime} mins</li>
 								<li>Budget: ${movie.budget}</li>
-								<li>Genres: {movie.genres.map(genre => (<em> {genre.name},</em>))}</li>
+								<li>Genres: {movie.genres.map((genre, i) => (<em key={i}> {genre.name},</em>))}</li>
 								<li>Language: {movie.original_language}</li>
 								<li>Release date: {movie.release_date}</li>
 							</ul>
 						</div>
-						<img src={`${img_BASE_URL}${movie.backdrop_path}`} className='img-fluid' />
+						<img src={`${img_BASE_URL}${movie.poster_path}`} className='info__img' alt='movie poster' />
 					</div>
 					
-					<h2>Cast</h2>
-					{/* <BasicTable columns={columns} data={movie} /> */}
-
-					<ListGroup>
-						{movie.credits.cast.map((person, i) => (
-							<ListGroup.Item key={i} className='d-flex justify-content-between'>
-								<div><em>{person.character}</em> - {person.name}</div>
-								<Button variant='success' as={Link} to={`/person/${person.id}`}>Read more</Button>
-							</ListGroup.Item>
-						))}
-					</ListGroup>
+					<div className='my-4'>
+						<h2>Cast</h2>
+						<Row xs={2} s={2} md={2} l={2}>
+							{movie.credits.cast.map((person, i) => (
+								<Col key={i}>
+									<div className='d-flex justify-content-between mx-4'>
+										<em>{person.character}</em>
+										-
+										<Link to={`/person/${person.id}`}>{person.name}</Link>
+									</div>					
+								</Col>
+							))}
+						</Row>
+					</div>
 				</>
 			)}
 		</Container>

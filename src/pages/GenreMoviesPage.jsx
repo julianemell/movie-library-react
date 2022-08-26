@@ -29,8 +29,6 @@ const GenreMovies = () => {
 	const prevPage = () => (setPage(prev => prev - 1), window.scrollTo(0,0))
 	console.log(window.location.href)
 
-	const img_BASE_URL = "https://image.tmdb.org/t/p/w500/"
-
 	return (
 		<Container>
 			{genreIsLoading && <LoadingSpinner />}
