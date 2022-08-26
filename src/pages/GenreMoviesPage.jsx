@@ -26,11 +26,12 @@ const GenreMovies = () => {
 	console.log('clicked genre', genreClick)
 	
 	const { data, isError, error, isLoading, isPreviousData } = useGenreMovies(page, genreClick)
-	//console.log('data', data)
+	console.log('data', data)
 	
 	const nextPage = () => (setPage(prev => prev + 1), window.scrollTo(0,0))
 	const prevPage = () => (setPage(prev => prev - 1), window.scrollTo(0,0))
-	
+	console.log(window.location.href)
+
 	const img_BASE_URL = "https://image.tmdb.org/t/p/w500/"
 
 	return (
@@ -75,8 +76,8 @@ const GenreMovies = () => {
 					
 					<div className='d-flex justify-content-between mt-4 mb-4'>
 						<Button variant='warning' onClick={prevPage} disabled={isPreviousData || page === 1}>previous</Button>
-						{page}
-						<Button variant='warning' onClick={nextPage} disabled={page === data.total_pages}>next</Button>
+						<p>{page}/{data.total_pages}</p>
+						<Button variant='warning' onClick={nextPage} disabled={isPreviousData || page === data.total_pages}>next</Button>
 					</div>
 				</>
 			)}
