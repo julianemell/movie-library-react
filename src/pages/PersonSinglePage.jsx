@@ -1,19 +1,25 @@
 import usePerson from '../hooks/usePerson'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 
+import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+import ListGroup from 'react-bootstrap/ListGroup'
+
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
-import ListGroup from 'react-bootstrap/ListGroup'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
 
 const PersonSinglePage = () => {
 	const { id } = useParams()
-	const { data: person, error, isError, isLoading } = usePerson(id)
-	console.log('person', person)
-	const img_BASE_URL = 'https://image.tmdb.org/t/p/w500/'
 
+	const { 
+		data: person, 
+		isError,
+		error,
+		isLoading 
+	} = usePerson(id)
+	
+	const img_BASE_URL = 'https://image.tmdb.org/t/p/w500/'
 
 	return (
 		<Container>
@@ -43,7 +49,7 @@ const PersonSinglePage = () => {
 							{person.movie_credits.cast.map((movie, i) => (
 								<ListGroup.Item key={i} className='d-flex justify-content-between'>
 									<div>{movie.title}</div>
-									<Button variant='success' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
+									<Button variant='btn btn-outline-dark' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
 								</ListGroup.Item>
 							))}
 						</ListGroup>
