@@ -1,18 +1,23 @@
 import Container from 'react-bootstrap/Container'
-import usePopularMovies from '../hooks/usePopularMovies'
-import ListMovies from '../components/ListMovies'
 
+import ListMovies from '../components/ListMovies'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
+import usePopularMovies from '../hooks/usePopularMovies'
 
 const PopularMoviesPage = () => {
-	const { data: popularMovies, isError: isErrorPopular, error: errorPopular, isLoading: isLoadingPopular } = usePopularMovies()
+	const { 
+		data,
+		isError, 
+		error, 
+		isLoading 
+	} = usePopularMovies()
 
 	return (
 		<Container>
-			{isLoadingPopular && <LoadingSpinner />}
-			{isErrorPopular && <WarningAlert message={errorPopular.message} />}
-			{popularMovies && <ListMovies data={popularMovies}/>}
+			{isLoading && <LoadingSpinner />}
+			{isError && <WarningAlert message={error.message} />}
+			{data && <ListMovies data={data}/>}
 		</Container>
 	)
 }

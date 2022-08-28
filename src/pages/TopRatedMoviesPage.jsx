@@ -1,18 +1,23 @@
 import Container from 'react-bootstrap/Container'
-import useTopRatedMovies from '../hooks/useTopRatedMovies'
 
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
 import ListMovies from '../components/ListMovies'
+import useTopRatedMovies from '../hooks/useTopRatedMovies'
 
 const TopRatedMoviesPage = () => {
-	const { data: topRatedMovies, isError: isErrorTopRated, error: errorTopRated, isLoading: isLoadingTopRated } = useTopRatedMovies()
+	const { 
+		data,
+		isError, 
+		error, 
+		isLoading
+	} = useTopRatedMovies()
 	
 	return (
 		<Container className='mb-4 mt-4'>
-			{isLoadingTopRated && <LoadingSpinner />}
-			{isErrorTopRated && <WarningAlert message={errorTopRated.message} />}
-			{topRatedMovies && <ListMovies data={topRatedMovies}/>}
+			{isLoading && <LoadingSpinner />}
+			{isError && <WarningAlert message={error.message} />}
+			{data && <ListMovies data={data}/>}
 		</Container>
 	)
 }

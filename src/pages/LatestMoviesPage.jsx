@@ -1,18 +1,23 @@
 import Container from 'react-bootstrap/Container'
+
 import ListMovies from '../components/ListMovies'
-import useLatestMovies from '../hooks/useLatestMovies'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
+import useLatestMovies from '../hooks/useLatestMovies'
 
 const LatestMoviesPage = () => {
-	const { data: latestMovies, isError: isErrorLatest, error: errorLatest, isLoading: isLoadingLatest } = useLatestMovies()
-	console.log('latestMovies', latestMovies)
+	const { 
+		data,
+		isError, 
+		error, 
+		isLoading
+	} = useLatestMovies()
 
 	return (
 		<Container>
-			{isLoadingLatest && <LoadingSpinner />}
-			{isErrorLatest && <WarningAlert message={errorLatest.message} />}
-			{latestMovies && <ListMovies data={latestMovies}/>}
+			{isLoading && <LoadingSpinner />}
+			{isError && <WarningAlert message={error.message} />}
+			{data && <ListMovies data={data}/>}
 			
 		</Container>
 	)
