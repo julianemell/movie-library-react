@@ -9,7 +9,6 @@ import PopularMoviesPage from './pages/PopularMoviesPage'
 import LatestMoviesPage from './pages/LatestMoviesPage'
 import TopRatedMoviesPage from './pages/TopRatedMoviesPage'
 import PersonSinglePage from './pages/PersonSinglePage'
-import GenreMoviesPage from './pages/GenreMoviesPage'
 import GenreSingleMoviesPage from './pages/GenreSingleMoviesPage'
 import Genres from './pages/Genres'
 
@@ -23,7 +22,6 @@ function App() {
 			<Routes>
 				<Route path='/' element={<MoviePage />} />
 				<Route path='/movies' element={<MoviePage />} />
-				<Route path='/movies-genre' element={<GenreMoviesPage />} />
 				<Route path='/genres' element={<Genres />} />
 				<Route path='/genres/:id' element={<GenreSingleMoviesPage />} />
 				<Route path='/popular-movies' element={<PopularMoviesPage />} />
