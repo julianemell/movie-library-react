@@ -1,15 +1,23 @@
 import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+const Genres = ({ data, id,  }) => {
 
-const Genres = ({ data, setGenreClick, setPage, setGenreName, genreName,getSearchParams, page }) => {
-	console.log('page?', page)
+	const chosenGenre = data.genres.find(genre => Number(id) === genre.id)
+	console.log('id', id)
+
+	console.log('chosenGenre', chosenGenre.name)
+	
 	return (
 		<div className='d-flex justify-content-center flex-column align-items-center'>
 			<div className='d-flex justify-content-center w-100 flex-wrap my-3'>
 				{data.genres.map((genre, i) => (
-					<Button className='m-1 py-1 px-2' variant='warning' key={i} onClick={() => (setGenreClick(genre.id), setPage(1), setGenreName(genre.name), getSearchParams(page, genre.id))}>{genre.name}</Button>
+					<Button className='m-1 py-1 px-2' variant='warning' key={i} as={Link} to={`/genres/${genre.id}`}>{genre.name}</Button>
 				))}
 			</div>
-			<p>{genreName}</p>
+			<p>You've searched for the genre <em>{chosenGenre.name}</em></p>
 		</div>
 	)
 }
