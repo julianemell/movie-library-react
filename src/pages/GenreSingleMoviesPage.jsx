@@ -12,6 +12,7 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import ListMovies from '../components/ListMovies'
 
 const GenreSingleMoviesPage = () => {
 	const { id } = useParams()
@@ -52,37 +53,22 @@ const GenreSingleMoviesPage = () => {
 					</div>
 				)}
 			</div>
-			
+
 			{isLoading && <LoadingSpinner />}
 
 			{isError && <WarningAlert message={error.message} />}
 
 			{data && (
 				<>
-				<Row xs={2} s={2} md={3} l={5}>
-					{data.results.map((movie, i) => (
-						<Col key={i}>
-							<Card className='bg-warning mt-2 mb-2'>
-								<Card.Img variant='top' src={`${img_BASE_URL}${movie.poster_path}`} className='img-fluid' />
-								<Card.Body>
-									<Card.Title id='movie-title'>{movie.original_title}</Card.Title>
-									<Card.Text className='cut-text'>
-										{movie.overview}
-									</Card.Text>
-									<Button variant='success' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
-								</Card.Body>
-							</Card>
-						</Col>
-					))}
-				</Row>
+					<ListMovies data={data}/>
 
-				<Pagination 
-					page={genrePage}
-					totPages={data.total_pages}
-					previousData={isPreviousData}
-					setSearchParams={setSearchParams}
-				/>
-			</>
+					<Pagination 
+						page={genrePage}
+						totPages={data.total_pages}
+						previousData={isPreviousData}
+						setSearchParams={setSearchParams}
+					/>
+				</>
 			)}
 			
 		</Container>

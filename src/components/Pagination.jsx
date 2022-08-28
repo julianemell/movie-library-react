@@ -1,8 +1,6 @@
 import Button from 'react-bootstrap/Button'
 
-
 const Pagination = ({ page, totPages, previousData, setSearchParams }) => {
-
 	let next = Number(page) + 1
 	let prev = Number(page) - 1
 
