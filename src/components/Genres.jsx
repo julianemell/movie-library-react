@@ -1,14 +1,11 @@
-import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
-import Card from 'react-bootstrap/Card'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-const Genres = ({ data, id,  }) => {
+
+import Button from 'react-bootstrap/Button'
+
+const Genres = ({ data, id }) => {
 
 	const chosenGenre = data.genres.find(genre => Number(id) === genre.id)
 	console.log('id', id)
-
-	console.log('chosenGenre', chosenGenre.name)
 	
 	return (
 		<div className='d-flex justify-content-center flex-column align-items-center'>
