@@ -1,17 +1,20 @@
 import { useQuery } from 'react-query'
-import MovieAPI from '../services/MovieAPI'
+import { Link } from 'react-router-dom'
 
+import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
+import MovieAPI from '../services/MovieAPI'
 
 
 const Genres = () => {
-	const { data: genreButtonsData, error: genreError, isError: genreIsError, isLoading: genreIsLoading } = useQuery('genres', MovieAPI.getGenres)
-	console.log('data', genreButtonsData)
-	
+	const { 
+		data: genreButtonsData, 
+		error: genreError, 
+		isError: genreIsError, 
+		isLoading: genreIsLoading 
+	} = useQuery('genres', MovieAPI.getGenres)
 
 
 	return (

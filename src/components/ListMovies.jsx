@@ -20,7 +20,7 @@ const ListMovies = ({data}) => {
 								<Card.Text className='cut-text'>
 									{movie.overview}
 								</Card.Text>
-								<Button variant='success' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
+								<Button variant='btn btn-outline-dark w-100' as={Link} to={`/movies/${movie.id}`}>Read more</Button>
 							</Card.Body>
 						</Card>
 					</Col>
