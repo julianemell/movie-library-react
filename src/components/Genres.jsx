@@ -14,7 +14,7 @@ const Genres = ({ data, id }) => {
 					<Button className='m-1 py-1 px-2' variant='warning' key={i} as={Link} to={`/genres/${genre.id}`}>{genre.name}</Button>
 				))}
 			</div>
-			<p>You've searched for the genre <em>{chosenGenre.name}</em></p>
+			<p>Showing <em>{chosenGenre.name} </em> movies</p>
 		</div>
 	)
 }
