@@ -15,9 +15,9 @@ const Navigation = () => {
 				<Navbar.Collapse id='basic-navbar-nav'>
 					<Nav className='ms-auto'>
 						<NavDropdown title="Movies" id="navbarScrollingDropdown">
-							<NavDropdown.Item as={NavLink} to="/popular-movies">Popular movies</NavDropdown.Item>
-							<NavDropdown.Item as={NavLink} to="/latest-movies">Latest movies</NavDropdown.Item>
-							<NavDropdown.Item as={NavLink} to="/top-rated-movies">Top rated movies</NavDropdown.Item>
+							<NavDropdown.Item id='nav-drop' as={NavLink} to="/popular-movies">Popular movies</NavDropdown.Item>
+							<NavDropdown.Item id='nav-drop' as={NavLink} to="/latest-movies">Latest movies</NavDropdown.Item>
+							<NavDropdown.Item id='nav-drop' as={NavLink} to="/top-rated-movies">Top rated movies</NavDropdown.Item>
 						</NavDropdown>						
 						<Nav.Link as={NavLink} end to='/genres'>Movies by genre</Nav.Link>
 					</Nav>

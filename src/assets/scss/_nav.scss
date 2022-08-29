@@ -1,0 +1,10 @@
+@import 'bootstrap/scss/bootstrap';
+
+#nav-drop:hover {
+	background-color: $warning;
+}
+
+
+a .nav-drop .dropdown-item:active {
+	background-color: $warning solid;
+}
