@@ -59,7 +59,7 @@ const MovieSinglePage = () => {
 					
 					<div className='my-4'>
 						<h2>Cast</h2>
-						<Row xs={2} s={2} md={2} l={2}>
+						<Row xs={1} s={2} md={2} l={2}>
 							{movie.credits.cast.map((person, i) => (
 								<Col key={i}>
 									<div className='d-flex justify-content-between mx-4'>
