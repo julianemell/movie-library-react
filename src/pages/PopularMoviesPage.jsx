@@ -14,7 +14,8 @@ const PopularMoviesPage = () => {
 	} = usePopularMovies()
 
 	return (
-		<Container>
+		<Container className='my-4'>
+			<h1>Popular movies</h1>
 			{isLoading && <LoadingSpinner />}
 			{isError && <WarningAlert message={error.message} />}
 			{data && <ListMovies data={data}/>}

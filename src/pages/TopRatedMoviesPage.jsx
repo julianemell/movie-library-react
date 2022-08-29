@@ -14,7 +14,8 @@ const TopRatedMoviesPage = () => {
 	} = useTopRatedMovies()
 	
 	return (
-		<Container className='mb-4 mt-4'>
+		<Container className='my-4'>
+			<h1>Top rated movies</h1>
 			{isLoading && <LoadingSpinner />}
 			{isError && <WarningAlert message={error.message} />}
 			{data && <ListMovies data={data}/>}

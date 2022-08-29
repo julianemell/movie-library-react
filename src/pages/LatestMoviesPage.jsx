@@ -15,6 +15,7 @@ const LatestMoviesPage = () => {
 
 	return (
 		<Container>
+			<h1 className='my-4'>Latest movies</h1>
 			{isLoading && <LoadingSpinner />}
 			{isError && <WarningAlert message={error.message} />}
 			{data && <ListMovies data={data}/>}

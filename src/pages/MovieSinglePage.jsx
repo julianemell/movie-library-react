@@ -64,7 +64,7 @@ const MovieSinglePage = () => {
 								<Col key={i}>
 									<div className='d-flex justify-content-between mx-4'>
 										<em>{person.character}</em>
-										-
+										
 										<Link className='actor-link text-warning' to={`/person/${person.id}`}>{person.name}</Link>
 									</div>					
 								</Col>
