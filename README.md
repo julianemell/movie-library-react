@@ -1,7 +1,7 @@
 The Movie DB (TMDB)
 ===================
 
-[the site]:  https://moviedb-nemell.netlify.app/
+The site:  https://moviedb-nemell.netlify.app/
 
 
 - React Router
@@ -10,6 +10,5 @@ The Movie DB (TMDB)
 - Bootstrap
 
 
-API: 
-[api]: https://www.themoviedb.org/
+API: https://www.themoviedb.org/
 
