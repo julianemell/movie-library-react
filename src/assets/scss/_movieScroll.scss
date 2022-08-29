@@ -27,7 +27,7 @@
 }
 
 .movie-scroll__img {
-	width: 200px;
+	width: 150px;
 	height: auto;
 }
 
@@ -37,4 +37,11 @@
 	font-family: 'Courier New', Courier, monospace;
 	font-weight: 500;
 
+}
+
+@media screen and (min-width: 576px) {
+	.movie-scroll__img {
+		width: 200px;
+		height: auto;
+	}
 }
