@@ -1,5 +1,17 @@
 @import 'bootstrap/scss/bootstrap';
 
+.navbar-brand {
+	color: black;
+}
+
+#navbarScrollingDropdown {
+	color: black;
+}
+
+#nav-link {
+	color: black;
+}
+
 #nav-drop:hover {
 	background-color: $warning;
 }
