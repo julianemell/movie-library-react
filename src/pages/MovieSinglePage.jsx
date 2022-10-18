@@ -1,36 +1,17 @@
-import { useMemo } from 'react'
 import { useParams } from 'react-router'
 import useMovie from '../hooks/useMovie'
-import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
-import BasicTable from '../components/BasicTable'
-import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 const MovieSinglePage = () => {
 	const { id } = useParams()
 	const { data: movie, error, isError, isLoading } = useMovie(id)
-	console.log('movie', movie)
 	const img_BASE_URL = 'https://image.tmdb.org/t/p/w500/'
-
-
-/* 	const columns = useMemo(() => {
-		return [
-			{
-				Header: 'Character',
-				accessor: 'credits.media.name',
-			},
-			{
-				Header: 'Name',
-				accessor: '', 
-			},
-		]
-	}, []) */
 
 	return (
 		<Container>
@@ -66,7 +47,7 @@ const MovieSinglePage = () => {
 										<em>{person.character}</em>
 										
 										<Link className='actor-link text-warning' to={`/person/${person.id}`}>{person.name}</Link>
-									</div>					
+									</div>
 								</Col>
 							))}
 						</Row>
