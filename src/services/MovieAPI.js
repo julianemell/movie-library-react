@@ -25,11 +25,13 @@ const getTopRatedMovies = () => {
 	return get(`/movie/top_rated?api_key=${API_KEY}&include_adult=false&language=${language}&region=${region}`)
 }
 
-const getMovie = (id) => {
+const getMovie = ({ queryKey }) => {
+	const [_key, id] = queryKey
 	return get(`/movie/${id}?api_key=${API_KEY}&include_adult=false&language=${language}&region=${region}&append_to_response=credits`)
 }
 
-const getPerson = (id) => {
+const getPerson = ({ queryKey }) => {
+	const [_key, id] = queryKey
 	return get(`/person/${id}?api_key=${API_KEY}&include_adult=false&language=${language}&region=${region}&append_to_response=movie_credits,image`)
 }
 
