@@ -15,8 +15,9 @@ const GenreSingleMoviesPage = () => {
 	const { id } = useParams()
 
 	const [searchParams, setSearchParams] = useSearchParams({type: '', page: 1})
-	const genrePage = searchParams.get('page')
+	const genrePage = Number(searchParams.get('page'))
 
+	
 	const { 
 		data, 
 		isError, 
@@ -51,6 +52,7 @@ const GenreSingleMoviesPage = () => {
 						totPages={data.total_pages}
 						previousData={isPreviousData}
 						setSearchParams={setSearchParams}
+						searchParams={searchParams}
 					/>
 				</>
 			)}

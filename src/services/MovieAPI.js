@@ -30,16 +30,16 @@ const getMovie = (id) => {
 }
 
 const getPerson = (id) => {
-	return get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits,image`)
+	return get(`/person/${id}?api_key=${API_KEY}&include_adult=false&append_to_response=movie_credits,image`)
 }
 
 const getGenre = ({ queryKey }) => {
 	const [_key, page, type] = queryKey
-	return get(`/discover/movie?api_key=${API_KEY}&with_genres=${type}&page=${page}`)
+	return get(`/discover/movie?api_key=${API_KEY}&include_adult=false&with_genres=${type}&page=${page}`)
 }
 
 const getGenres = () => {
-	return get(`/genre/movie/list?api_key=${API_KEY}&language=${language}`)
+	return get(`/genre/movie/list?api_key=${API_KEY}&include_adult=false&language=${language}`)
 }
 
 
